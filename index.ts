@@ -1,5 +1,10 @@
 import fastify from 'fastify'
 import cors from "@fastify/cors"
+import { MongoClient } from "mongodb";
+import dotenv from "dotenv";
+dotenv.config();
+
+console.log("URI:", process.env.MONGODB_URI); // ← HIER
 
 const server = fastify()
 
@@ -80,7 +85,15 @@ server.get('/readingProfile', async (request, reply) => {
 //     return reply.send(profile);
 // });
 
+server.post('/login', async (request, reply) => {
+  const body = request.body as { username: string; password: string };
 
+  if (body.username === "teacher" && body.password === "1234") {
+    return { role: "teacher" };
+  }
+
+  return { role: "student" };
+});
 
 
 
@@ -92,3 +105,17 @@ server.listen({ port: 8080 }, (err, address) => {
   }
   console.log(`Server listening at ${address}`)
 })
+
+
+const uri = process.env.MONGODB_URI as string;
+const client = new MongoClient(uri);
+
+server.get('/catalog', async (request, reply) => {
+    await client.connect();
+    const db = client.db("leescatalogus");
+    const collection = db.collection("boeken");
+
+    const books = await collection.find({}).toArray();
+
+    return books;
+});
