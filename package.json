@@ -7,7 +7,9 @@
     "build": "tsc -p tsconfig.json",
     "start": "node index.js",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+       "db:generate": "drizzle-kit generate",
+   "db:migrate": "drizzle-kit migrate"
   },
   "keywords": [],
   "author": "",

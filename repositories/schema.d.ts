@@ -1,3 +1,40 @@
+export declare const teacherStudent: import("drizzle-orm/pg-core").PgTableWithColumns<{
+    name: "teacher_student";
+    schema: undefined;
+    columns: {
+        teacherId: import("drizzle-orm/pg-core").PgBuildColumn<"teacher_student", import("drizzle-orm/pg-core").SetNotNull<import("drizzle-orm/pg-core").PgIntegerBuilder>, {
+            name: string;
+            tableName: "teacher_student";
+            dataType: "number int32";
+            data: number;
+            driverParam: string | number;
+            notNull: true;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: undefined;
+            identity: undefined;
+            generated: undefined;
+        }>;
+        studentId: import("drizzle-orm/pg-core").PgBuildColumn<"teacher_student", import("drizzle-orm/pg-core").SetNotNull<import("drizzle-orm/pg-core").PgIntegerBuilder>, {
+            name: string;
+            tableName: "teacher_student";
+            dataType: "number int32";
+            data: number;
+            driverParam: string | number;
+            notNull: true;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: undefined;
+            identity: undefined;
+            generated: undefined;
+        }>;
+    };
+    dialect: 'pg';
+}>;
 export declare const teachers: import("drizzle-orm/pg-core").PgTableWithColumns<{
     name: "teachers";
     schema: undefined;
@@ -120,43 +157,6 @@ export declare const students: import("drizzle-orm/pg-core").PgTableWithColumns<
             dataType: "string";
             data: string;
             driverParam: string;
-            notNull: true;
-            hasDefault: false;
-            isPrimaryKey: false;
-            isAutoincrement: false;
-            hasRuntimeDefault: false;
-            enumValues: undefined;
-            identity: undefined;
-            generated: undefined;
-        }>;
-    };
-    dialect: 'pg';
-}>;
-export declare const teacherStudent: import("drizzle-orm/pg-core").PgTableWithColumns<{
-    name: "teacher_student";
-    schema: undefined;
-    columns: {
-        teacherId: import("drizzle-orm/pg-core").PgBuildColumn<"teacher_student", import("drizzle-orm/pg-core").SetNotNull<import("drizzle-orm/pg-core").PgIntegerBuilder>, {
-            name: string;
-            tableName: "teacher_student";
-            dataType: "number int32";
-            data: number;
-            driverParam: string | number;
-            notNull: true;
-            hasDefault: false;
-            isPrimaryKey: false;
-            isAutoincrement: false;
-            hasRuntimeDefault: false;
-            enumValues: undefined;
-            identity: undefined;
-            generated: undefined;
-        }>;
-        studentId: import("drizzle-orm/pg-core").PgBuildColumn<"teacher_student", import("drizzle-orm/pg-core").SetNotNull<import("drizzle-orm/pg-core").PgIntegerBuilder>, {
-            name: string;
-            tableName: "teacher_student";
-            dataType: "number int32";
-            data: number;
-            driverParam: string | number;
             notNull: true;
             hasDefault: false;
             isPrimaryKey: false;

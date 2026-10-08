@@ -1,6 +1,16 @@
 // db/schema.ts
 import { pgTable, serial, varchar, text, boolean } from "drizzle-orm/pg-core";
 import { integer } from "drizzle-orm/pg-core";
+import { primaryKey } from "drizzle-orm/pg-core";
+
+export const teacherStudent = pgTable(
+  "teacher_student",
+  {
+    teacherId: integer("teacher_id").notNull().references(() => teachers.id),
+    studentId: integer("student_id").notNull().references(() => students.id),
+  },
+  (t) => [primaryKey({ columns: [t.teacherId, t.studentId] })]
+);
 
 export const teachers = pgTable("teachers", {
   id: serial("id").primaryKey(),
@@ -18,10 +28,10 @@ export const students = pgTable("students", {
 
 });
 
-export const teacherStudent = pgTable("teacher_student", {
-  teacherId: integer("teacher_id").notNull().references(() => teachers.id),
-  studentId: integer("student_id").notNull().references(() => students.id)
-});
+// export const teacherStudent = pgTable("teacher_student", {
+//   teacherId: integer("teacher_id").notNull().references(() => teachers.id),
+//   studentId: integer("student_id").notNull().references(() => students.id)
+// });
 
 
 export const leesprofiel = pgTable("reading_profile", {
